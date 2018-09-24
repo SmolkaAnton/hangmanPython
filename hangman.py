@@ -7,8 +7,10 @@ def main():
     animals = ["dog", "cat", "horse", "lion", "kangaroo", "parrot", "panda", "turle", "elephant", "tiger", "llama"]
     adjectives = ["athletic", "happy", "sad", "fit", "dazzling", "magnificent", "mad", "lively", "petite", "brave", "thoughtful"]
     states = ["alabama", "california", "delaware", "arizona", "nevada", "newyork", "northcarolina", "texas", "tennessee", "florida", "colorado"]
+
     num = choose_word()
     cat = choose_category()
+    
     if(cat==1):
         category = "Animals"
         word_generated = list(animals[num]) #Chooses word from list user has to guess
