@@ -16,12 +16,12 @@ def random():
 
 #Function used to play game
 def playGame(word_generated):
-    #Counter for guesses
-    counter = 0
     display = []
+    used = []
 
     #Adds the generated word to the list
     display.extend(word_generated)
+    used.extend(display)
 
     #This will add _ to the display array
     for i in range (len(display)):
@@ -31,17 +31,24 @@ def playGame(word_generated):
     print(" ".join(display))
     print()
 
-    while(counter<=len(word_generated)):
+    #Counter for guesses
+    count = 0
+    while(count < len(word_generated)):
         guess = input("Guess a letter ")
         guess.lower()
-        print(counter)
+        print(count)
 
         #iterate through the generated word
         for i in range (len(word_generated)):
-            if(word_generated[i]==guess):
+            if(word_generated[i]==guess and guess in used):
                 display[i]=guess
-                counter+=1
+                count += 1
+                used.remove(guess)
 
+        if guess not in display:
+            print("Sorry, wrong guess")
+
+        print("You have guessed: ", count, " correct letters.")
         print(" ".join(display))
         print()
 
